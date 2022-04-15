@@ -42,7 +42,7 @@ int main(void)
 	while(bandera==0)
 	{
 
-		printf("\nIngrese un numero del 1-5 \n");
+		printf("\nIngrese un numero del 1-6 \n");
 		printf("1-Para ingresar kilometros (%.2f KM)\n",kilometros);
 		printf("2-Para ingresar precio de vuelos Aerolineas:($%.2f) - Latam:($%.2f)\n",precioAerolineas, precioLatam);
 		printf("3-Para calcular las operaciones\n");
@@ -50,13 +50,13 @@ int main(void)
 		printf("5-Carga forzada de datos\n");
 		printf("6-Salir\n");
 
-		scanf("%d", &numero);
+		numero= IngresarNumeroInt("Numero a ingresar: ", 1, 6);
 		fflush(stdin);
 
 	    switch(numero)
 	    {
 	        case 1:
-	        	auxKilometraje = IngresarNumero("Ingresar kilometros: ",0,999999);
+	        	auxKilometraje = IngresarNumeroFloat("Ingresar kilometros: ",0,999999);
 	        	if(auxKilometraje>0)
 	        	{
 	        		kilometros=auxKilometraje;
@@ -67,8 +67,8 @@ int main(void)
 	        	}
 	        break;
 	        case 2:
-	        	auxAerolineas = IngresarNumero("Ingresar Precio Aerolineas:",0,999999);
-	        	auxLatam = IngresarNumero("Ingresar Precio Latam: ",0,999999 );
+	        	auxAerolineas = IngresarNumeroFloat("Ingresar Precio Aerolineas:",0,999999);
+	        	auxLatam = IngresarNumeroFloat("Ingresar Precio Latam: ",0,999999 );
 
 	        	if(auxLatam>0 && auxAerolineas>0)
 	        	{
@@ -78,7 +78,7 @@ int main(void)
 	        	}
 	        	else
 	        	{
-	        		printf("Se ingreso un precio de vuelo invalido\n");
+	        		printf("\nSe ingreso un precio de vuelo invalido\n");
 	        	}
 
 	        break;
@@ -97,6 +97,7 @@ int main(void)
 	             	precioUnitarioAero = precioAerolineas / kilometros;
 
 	        		banderaCase3++;
+	        		printf("Se calcularon los precios correctamente, ahora precione 4\n\n");
 	        	}
 	        	else
 	        	{
@@ -143,7 +144,7 @@ int main(void)
 				break;
 
 			default:
-				printf("\nIngrese un dato correcto entre 1-5\n");
+				printf("\nIngrese un dato correcto entre 1-6\n");
 				break;
 	    }
 	}

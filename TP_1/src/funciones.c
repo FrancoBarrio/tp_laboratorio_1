@@ -29,12 +29,26 @@ void MostrarResultados(float kilometros,float precioAerolineas,float descuentoDe
 }
 
 
-float IngresarNumero(char* string, float minimo, float maximo)
+float IngresarNumeroFloat(char* string, float minimo, float maximo)
 {
 	float aux = 0;
 	float resultado = -1;
 	printf("%s",string);
 	int check = scanf("%f", &aux);
+
+	if(check == 1 &&( aux > minimo && aux < maximo))
+	{
+		resultado = aux;
+	}
+	return resultado;
+}
+
+int IngresarNumeroInt(char* string, int minimo, int maximo)
+{
+	int aux = 0;
+	int resultado = -1;
+	printf("%s",string);
+	int check = scanf("%d", &aux);
 
 	if(check == 1 &&( aux > minimo && aux < maximo))
 	{
